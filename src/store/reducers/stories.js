@@ -1,5 +1,4 @@
 import initialState from '../initialstate';
-import C from '../../constants';
 
 const storiesReducer = (state, action) => {
     const newState = Object.assign({}, state);

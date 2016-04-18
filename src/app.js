@@ -3,11 +3,11 @@ import ReactDOM  from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './store/store';
 
-import Wrapper from './pages/wrapper'
+import Dashboard from './pages/dashboard'
 
 ReactDOM.render(
     <Provider store={store}>
-        <Wrapper />
+        <Dashboard />
     </Provider>,
     document.getElementById('app')
 );
