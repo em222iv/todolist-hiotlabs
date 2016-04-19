@@ -48,21 +48,21 @@ class Story extends Component{
     render() {
       return  (
         <div style={styles.story} className="story">
-            <div style={styles.story.storyImage}>
-              <Date date={this.props.story.created_at} />
-              <Image url={this.props.story.image} styles={ styles.imageStyle } />
-            </div>
-            <div style={styles.story.storyInfoPanel}>
-              <Tag text={this.props.story.tags.tag} />
-              <Type text={this.props.story.type_of_media} />
-              {this.props.story.contact_people.contact_person.map((person) => {
-                 return <ContactPerson url={person.image_thumbnail_small} />
-               })}
-            </div>
-            <div style={styles.story.storyContent}>
-              <Header title={this.props.story.header} />
-              <Summary text={this.props.story.summary} />
-            </div>
+          <div style={styles.story.storyImage}>
+            <Date date={this.props.story.created_at} />
+            <Image url={this.props.story.image} styles={ styles.imageStyle } />
+          </div>
+          <div style={styles.story.storyInfoPanel}>
+            <Tag text={this.props.story.tags.tag} />
+            <Type text={this.props.story.type_of_media} />
+            {this.props.story.contact_people.contact_person.map((person) => {
+               return <ContactPerson url={person.image_thumbnail_small} />
+             })}
+          </div>
+          <div style={styles.story.storyContent}>
+            <Header title={this.props.story.header} />
+            <Summary text={this.props.story.summary} />
+          </div>
         </div>
     )
   }

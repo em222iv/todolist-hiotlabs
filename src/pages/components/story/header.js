@@ -6,11 +6,11 @@ const styles = {
     paddingLeft:'40px',
     paddingRight:'40px',
   }
-}
+};
 
 class Header extends Component{
       render() {
-        return  <div style={styles.header} ><h1>{this.props.title}</h1></div>
+        return  <div style={styles.header} ><h3>{this.props.title}</h3></div>
     }
 };
 

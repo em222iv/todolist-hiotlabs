@@ -14,13 +14,9 @@ const styles = {
     background: 'linear-gradient(#A5B5BD 0, #7B847B 100%)',
     maxHeight: window.innerHeight
   },
-}
+};
 
 class Dashboard extends Component {
-
-    constructor(props) {
-     super(props);
-    }
 
     componentDidMount() {
       this.setInterval(() => {
@@ -31,8 +27,8 @@ class Dashboard extends Component {
     }
 
     setSideStoriesStyles() {
-      if(window.innerWidth < 1000)
-          return false
+      if(window.innerWidth < 800)
+          return false;
         return true;
     }
 
@@ -41,9 +37,8 @@ class Dashboard extends Component {
           <div style={styles.dashboard} className="dashboard">
             <Story story={ this.props.stories.stories[this.props.currentStory] } />
             {(() => {
-               if (this.setSideStoriesStyles()) {
+               if (this.setSideStoriesStyles())
                   return <SideStories stories={ this.props.sideStories } />;
-               }
              })()}
           </div>
       );

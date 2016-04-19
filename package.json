@@ -44,10 +44,8 @@
   "dependencies": {
     "json-loader": "^0.5.4",
     "react": "^0.14.3",
-    "react-animate": "^3.0.0",
     "react-dom": "^0.14.3",
     "react-mixin": "^2.0.2",
-    "react-timer-mixin": "^0.13.3",
-    "read-file": "^0.2.0"
+    "react-timer-mixin": "^0.13.3"
   }
 }
