@@ -15,7 +15,7 @@ const styles = {
     float: 'left',
     position: 'relative',
     padding:'20px',
-    maxWidth:'800px',
+    maxWidth: document.innerWidth/2,
     width:'100%',
     minHeight: window.innerHeight-40,
     margin:'auto',
