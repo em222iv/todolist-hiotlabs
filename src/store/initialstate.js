@@ -1,14 +1,26 @@
-import data from '../../fixtures/stories.json';
 export default () => {
     return {
-        stories:{
-          stories: data.stories
-        },
-        story: {
-          currentStory: 0,
-        },
-        sideStories: {
-          currentSideStories: data.stories.slice(1,25),
-        }
+        todos: [
+          {
+              id:0,
+              title: "do something",
+              completed: false,
+          },
+          {
+              id:1,
+              title: "do something else",
+              completed: false,
+          },
+          {
+              id:2,
+              title: "do something else troll",
+              completed: false,
+          },
+          {
+              id:4,
+              title: "do something else troller",
+              completed: false,
+          }
+        ]
     }
 };

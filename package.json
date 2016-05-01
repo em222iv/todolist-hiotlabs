@@ -1,28 +1,18 @@
 {
-  "name": "mynewsdesk",
+  "name": "todolist",
   "version": "1.0.0",
-  "description": "A work sample for myNewsDesk",
+  "description": "A work sample for hiotlabs",
   "main": "bundle.js",
   "scripts": {
     "start": "webpack-dev-server --hot --inline",
     "build": "webpack --progress --colors"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/em222iv/erik-frontend-assignment.git"
-  },
-  "keywords": [
-    "worksample",
-    "mynewsdesk",
-    "react",
-    "redux"
-  ],
+  "type": "git",
+  "url": "https://github.com/em222iv/todolist-hiotlabs.git"
+},
   "author": "Erik Magnusson",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/em222iv/erik-frontend-assignment/issues"
-  },
-  "homepage": "https://github.com/em222iv/erik-frontend-assignment#readme",
   "devDependencies": {
     "babel-core": "^6.2.1",
     "babel-loader": "^6.2.0",
@@ -30,7 +20,6 @@
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-react": "^6.1.18",
     "babel-preset-stage-1": "^6.1.18",
-    "file-loader": "^0.8.5",
     "eslint": "^1.10.3",
     "eslint-config-airbnb": "^2.1.1",
     "eslint-plugin-react": "^3.11.3",
@@ -42,10 +31,7 @@
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
-    "json-loader": "^0.5.4",
     "react": "^0.14.3",
-    "react-dom": "^0.14.3",
-    "react-mixin": "^2.0.2",
-    "react-timer-mixin": "^0.13.3"
+    "react-dom": "^0.14.3"
   }
 }
