@@ -1,21 +1,26 @@
 body {
+ 	font-family: Arial, Helvetica, sans-serif;
 	padding-top: 1em;
+	background-color: #f4f2f2;
+	font-size: 80%;
 }
 
 .wrapper {
     margin: 0 auto;
     max-width: 400px;
-    border: 1px solid black;
+    border: 2px solid #e5e6e7;
     border-radius: 5px;
+		background-color: #ffffff;
 }
 
 #title {
-  border-bottom: 1px dotted grey;
-  margin-bottom:20px;
+  border-bottom: 1px dotted #d5d3d3;
+  margin-bottom:15px;
 }
 
 #title h1 {
   text-align: center;
+  padding: 10px;
 }
 
 #add {
@@ -38,7 +43,7 @@ button {
   border: 1px solid gray;
   border-radius: 5px;
   margin-left:10px;
- background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.5) 51%);
+ background-image: linear-gradient(0deg, rgba(230,229,228,0.5) 0%, rgba(207,206,204,0.4) 50%, rgba(230,229,228,0.5) 51%);
 }
 ul {
   background-color: white;
@@ -46,18 +51,29 @@ ul {
   padding:0;
 }
 li {
-  padding: 10px;
+  padding: 15px;
+	color: grey;
+	cursor:-webkit-grab;
+}
+li:active {
+  padding: 15px;
+	color: grey;
+	cursor:-webkit-grabbing;
 }
 ul li:nth-child(2n) {
-  background-color: #C0C0C0;
+  background-color: #f1f5f9;
 }
 
 .footer {
-	border-top:1px solid black;
-	padding:10px;
+	border-top:1px dotted #d5d3d3;
+  padding: 15px;
+}
+.todos {
+	min-height: 200px;
 }
 #itemLeft{
 	display:inline;
+	color: #a7a7a7;
 }
 #markAll {
 	float:right;
@@ -65,4 +81,19 @@ ul li:nth-child(2n) {
 #markAll a {
 	text-decoration: none;
 	color:#00BFFF;
+}
+.sortIcon {
+	float:right;
+	background-image: url('http://i.stack.imgur.com/O9Lq2.png');
+	width:15px;
+	height: 15px;
+}
+.completeToggler {
+	float:left;
+	margin-left 5px;
+	margin-right: 5px;
+}
+.completed > span {
+	color: #a7a7a7;
+  text-decoration:line-through;
 }

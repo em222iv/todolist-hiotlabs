@@ -14,10 +14,10 @@ export default () => {
           {
               id:2,
               title: "do something else troll",
-              completed: false,
+              completed: true,
           },
           {
-              id:4,
+              id:3,
               title: "do something else troller",
               completed: false,
           }

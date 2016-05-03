@@ -9,17 +9,21 @@ import actions from '../../actions/todosActions';
 
 class Header extends Component {
 
-    handleClick(title) {
-      this.props.add(document.getElementById('add').value);
+    addTodo(title) {
+        let em = document.getElementById('add');
+        this.props.add(em.value);
+        em.value = "";
     }
 
     render() {
-      return (
-          <div className="header">
-            <input id="add" placeholder="What needs to be done?"/>
-            <button onClick={this.handleClick.bind(this)} type="button">Add Todo</button>
-          </div>
-      );
+        return ( < div className = "header" >
+            < input id = "add"
+            placeholder = "What needs to be done?" / >
+            < button onClick = {
+                this.addTodo.bind(this)
+            }
+            type = "button" > Add Todo < /button> < /div>
+        );
     }
 }
 
@@ -41,4 +45,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

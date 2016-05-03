@@ -8,9 +8,9 @@
     "build": "webpack --progress --colors"
   },
   "repository": {
-  "type": "git",
-  "url": "https://github.com/em222iv/todolist-hiotlabs.git"
-},
+    "type": "git",
+    "url": "https://github.com/em222iv/todolist-hiotlabs.git"
+  },
   "author": "Erik Magnusson",
   "license": "ISC",
   "devDependencies": {
@@ -31,7 +31,10 @@
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
-    "react": "^0.14.3",
-    "react-dom": "^0.14.3"
+    "react": "^0.14.8",
+    "react-dom": "^0.14.8",
+    "react-sortable": "https://github.com/danielstocks/react-sortable/tarball/v1.0-gridlist",
+    "react-sortablejs": "^1.0.0",
+    "sortablejs": "^1.4.2"
   }
 }

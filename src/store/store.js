@@ -1,4 +1,8 @@
-import { combineReducers, createStore } from 'redux';
+import {
+    combineReducers,
+    createStore,
+    compose
+} from 'redux';
 import todosReducer from './reducers/todosReducer';
 import initialState from './initialstate';
 
