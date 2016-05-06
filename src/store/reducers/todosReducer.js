@@ -1,17 +1,15 @@
 import initialState from '../initialstate';
 import C from '../../constants';
-import _ from 'underscore'
 
 const todosReducer = (state, action) => {
     const newState = Object.assign({}, state);
     switch (action.type) {
 
+        case C.GET_TODOS:
+            return action.response
+
         case C.ADD_TODO:
-            return [{
-                    id: state.length + 1,
-                    completed: false,
-                    title: action.title
-                },
+            return [action.todo,
                 ...state
             ]
 

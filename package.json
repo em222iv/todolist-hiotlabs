@@ -31,10 +31,13 @@
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
+    "node-rest-client": "^1.8.0",
     "react": "^0.14.8",
     "react-dom": "^0.14.8",
     "react-sortable": "https://github.com/danielstocks/react-sortable/tarball/v1.0-gridlist",
     "react-sortablejs": "^1.0.0",
+    "redux-api-middleware": "^1.0.2",
+    "redux-thunk": "^2.0.1",
     "sortablejs": "^1.4.2"
   }
 }
