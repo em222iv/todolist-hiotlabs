@@ -57,7 +57,7 @@ const api = {
     })
     .then(status)
     .then(response => {
-      return response.json()
+      return response
     }).catch(function(error) {
      console.log('failed', error);
     });
