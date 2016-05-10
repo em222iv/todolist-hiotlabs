@@ -1,17 +1,27 @@
 import initialState from '../initialstate';
 import C from '../../constants';
+import fetch from 'react-fetch';
 
 const todosReducer = (state, action) => {
     const newState = Object.assign({}, state);
     switch (action.type) {
 
         case C.GET_TODOS:
-            return action.response
+            return action.todos
 
         case C.ADD_TODO:
             return [action.todo,
                 ...state
             ]
+
+        case C.UPDATE_TODO:
+            return state.map((todo) => {
+                if (todo.id == action.id)
+                    return Object.assign({}, todo, {
+                        title: action.title
+                    })
+                return todo
+            })
 
         case C.DELETE_TODO:
             return state.filter((todo) => {

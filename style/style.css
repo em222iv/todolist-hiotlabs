@@ -70,6 +70,8 @@ ul li:nth-child(2n) {
 }
 .todos {
 	min-height: 200px;
+  max-height: 300px;
+  overflow: scroll;
 }
 #itemLeft{
 	display:inline;
@@ -96,4 +98,13 @@ ul li:nth-child(2n) {
 .completed > span {
 	color: #a7a7a7;
   text-decoration:line-through;
+}
+.titleInput {
+  background: transparent;
+  border: none;
+	color: grey;
+  min-width: 300px;
+}
+.titleInput:focus {
+  outline: none;
 }

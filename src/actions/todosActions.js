@@ -1,84 +1,83 @@
 import C from '../constants';
-import api from '../helpers/apiCalls'
-import {addTodo, Headers} from '../helpers/todoAPIHelpers'
+import todoAPI from '../helpers/todoAPI'
+
 
 export default {
     add(title){
       return dispatch => {
-       fetch(addTodo , {
-         method: 'POST',
-         header: Headers,
-        	body: JSON.stringify({
-        		title: title
-        	})
-        })
-        .then(response => response.json())
+        todoAPI.addTodo(title)
         .then(todo => dispatch({
-          type: C.ADD_TODO, todo
-        }))
-        .catch(error => console.log(error))
+             type: C.ADD_TODO, todo
+         }))
+        .catch((error) => {
+          console.log(error)
+        });
+       }
+    },
+    update(id,title){
+      return dispatch => {
+        todoAPI.updateTodo(id,title)
+        .then(todo => dispatch({
+             type: C.UPDATE_TODO, title
+         }))
+         .catch((error) => {
+           console.log(error)
+         });
        }
     },
     delete(id){
       return dispatch => {
-        fetch('http://localhost:3000/todo/delete/' + id , {
-          method: 'DELETE',
-          header: Headers,
-        })
-        .then(response => response)
+        todoAPI.deleteTodo(id)
         .then(todo => dispatch({
-          type: C.DELETE_TODO, id
-        }))
-        .catch(error => console.log(error))
+             type: C.DELETE_TODO, id
+         }))
+         .catch((error) => {
+           console.log(error)
+         });
        }
     },
     toggle(id){
       return dispatch => {
-        fetch('http://localhost:3000/todo/toggleCompleted/' + id , {
-          method: 'PUT',
-          header: Headers,
-        })
-        .then(response => response.json())
-        .then(todo => dispatch({
-          type: C.COMPLETE_TODO, id
+       todoAPI.toggle(id)
+       .then(todo => dispatch({
+            type: C.COMPLETE_TODO, id
         }))
-        .catch(error => console.log(error))
-       }
+        .catch((error) => {
+          console.log(error)
+        });
+     }
     },
     completeAll(){
        return dispatch => {
-        fetch('http://localhost:3000/todos/complete' , {
-          method: 'PUT',
-          header: Headers,
-          })
-        .then(response => response)
+        todoAPI.completeTodos()
         .then(todo => dispatch({
-          type: C.COMPLETE_TODOS
-        }))
-        .catch(error => console.log(error))
+             type: C.COMPLETE_TODOS
+         }))
+         .catch((error) => {
+           console.log(error)
+         });
        }
     },
     clearAll(){
       return dispatch => {
-        fetch('http://localhost:3000/todos/clear' , {
-          method: 'PUT',
-          header: Headers,
-          })
-          .then(response => response)
-          .then(todo => dispatch({
-            type: C.CLEAR_COMPLETED
-          }))
-          .catch(error => console.log(error))
+        todoAPI.clearTodos()
+        .then(todo => dispatch({
+             type: C.CLEAR_COMPLETED
+         }))
+         .catch((error) => {
+           console.log(error)
+         });
         }
     },
     order(order){
       return dispatch => {
-         api.todosOrder(order).then(response => {
+         todoAPI.todosOrder(order).then(response => {
             dispatch({
                 type: C.TODOS_ORDER, order
               })
-         }).catch((err) => {
-           console.log('Action error: ',err)
+         })
+         .catch((error) => {
+           console.log(error)
          });
        }
     },

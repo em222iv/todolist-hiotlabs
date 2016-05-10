@@ -8,23 +8,32 @@ import React, {
 import actions from '../../actions/todosActions';
 import Sortable from 'react-sortablejs';
 
+import Input from './Input';
+
 
 class Todos extends Component {
 
-    deleteTodo(todoID) {
+    deleteTodo(todoID,e) {
+      console.log(e.target.className);
+      if(e.target.className != 'titleInput' || e.target.className != 'completeToggler')
         this.props.delete(todoID)
     }
 
-    toggleTodo(todoID, completed) {
-        this.props.toggle(todoID, completed)
+    toggleTodo(todoID) {
+        this.props.toggle(todoID)
     }
 
     sortableState(order) {
         this.props.order(order)
     }
 
+    updateTodo(id,e) {
+        if(e.target.value !== '')
+          this.props.update(id,e.target.value)
+    }
+
     render() {
-        const simpleList = this.props.todos.map((todo, key) => ( < li key = {
+        const todoList = this.props.todos.map((todo, key) => ( < li key = {
                 key
             }
             className = {
@@ -35,9 +44,12 @@ class Todos extends Component {
             }
             onDoubleClick = {
                 this.deleteTodo.bind(this, todo.id)
-            } > {
+            } ><input onChange = {
+                  this.updateTodo.bind(this,todo.id)
+              }
+            className="titleInput" placeholder={
                 todo.title
-            } < input onChange = {
+            } />< input onChange = {
                 this.toggleTodo.bind(this, todo.id, todo.completed)
             }
             checked = {
@@ -52,7 +64,7 @@ class Todos extends Component {
             onChange = {
                 this.sortableState.bind(this)
             } > {
-                simpleList
+                todoList
             } < /Sortable> < /div >
         );
     }
@@ -64,6 +76,7 @@ Todos.propTypes = {
     toggle: PropTypes.func.isRequired,
     delete: PropTypes.func.isRequired,
     todos: PropTypes.array.isRequired,
+    update: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => {
@@ -82,6 +95,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         order: (order) => {
             dispatch(actions.order(order));
+        },
+        update: (id,title) => {
+            dispatch(actions.update(id,title));
         },
     };
 };
