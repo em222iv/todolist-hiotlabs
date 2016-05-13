@@ -10,6 +10,7 @@ import actions from '../../actions/todosActions';
 class Header extends Component {
 
     addTodo(title) {
+        // title validation
         let em = document.getElementById('add');
         this.props.add(em.value);
         em.value = "";
@@ -25,16 +26,11 @@ class Header extends Component {
             type = "button" > Add Todo < /button> < /div>
         );
     }
-}
 
+}
 
 Header.propTypes = {
     add: PropTypes.func.isRequired,
-};
-const mapStateToProps = (state) => {
-    return {
-        todos: state.todos
-    };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -45,4 +41,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(undefined, mapDispatchToProps)(Header);

@@ -19,8 +19,9 @@ todoAPI.getTodos().then(todos => {
    store.dispatch({
        type: C.GET_TODOS, todos
      })
-}).catch((err) => {
-  console.log('Error: ',err)
+})
+.catch((error) => {
+  console.log(error)
 });
 
 export default store;

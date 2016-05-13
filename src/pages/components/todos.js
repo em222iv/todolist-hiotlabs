@@ -8,9 +8,6 @@ import React, {
 import actions from '../../actions/todosActions';
 import Sortable from 'react-sortablejs';
 
-import Input from './Input';
-
-
 class Todos extends Component {
 
     deleteTodo(todoID,e) {
@@ -79,12 +76,6 @@ Todos.propTypes = {
     update: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => {
-    return {
-        todos: state.todos
-    };
-};
-
 const mapDispatchToProps = (dispatch) => {
     return {
         delete: (id) => {
@@ -102,4 +93,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Todos);
+export default connect(undefined, mapDispatchToProps)(Todos);

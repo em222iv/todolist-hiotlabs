@@ -20,17 +20,12 @@ class Footer extends Component {
     }
 
     render() {
-        let itemsLeft = 0;
-        this.props.todos.map(todo => {
-            if (!todo.completed)
-                itemsLeft++;
-        })
         return ( < div className = "footer" >
             < div id = "itemLeft" > {
-                itemsLeft
+                this.props.itemsToComplete
             } items left < /div> < div id = "markAll" > {
                 (() => {
-                    if (itemsLeft == 0) {
+                    if (this.props.itemsToComplete == 0) {
                         return <a href = ""
                         onClick = {
                             this.clearAll.bind(this)
@@ -41,10 +36,8 @@ class Footer extends Component {
                             this.completeAll.bind(this)
                         } > Mark all as completed < /a>
                     }
-
                 })()
             }
-
             < /div > < /div>
         );
     }
@@ -52,13 +45,9 @@ class Footer extends Component {
 }
 
 Footer.propTypes = {
-    completeAll: PropTypes.func.isRequired
-};
-
-const mapStateToProps = (state) => {
-    return {
-        todos: state.todos
-    };
+    completeAll: PropTypes.func.isRequired,
+    clearAll: PropTypes.func.isRequired,
+    itemsToComplete: PropTypes.number.isRequired
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -72,4 +61,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Footer);
+export default connect(undefined, mapDispatchToProps)(Footer);
