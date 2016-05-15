@@ -16,10 +16,12 @@ const todosReducer = (state, action) => {
 
         case C.UPDATE_TODO:
             return state.map((todo) => {
-                if (todo.id == action.id)
+                if (todo.id == action.id){
+                  console.log(todo);
                     return Object.assign({}, todo, {
                         title: action.title
                     })
+                  }
                 return todo
             })
 

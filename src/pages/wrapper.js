@@ -18,7 +18,7 @@ class Wrapper extends Component {
             <div id="title">
               <h1>Todos</h1>
             </div>
-            <Header todos={this.props.todos}/>
+            <Header />
             <Todos todos={this.props.todos}/>
             <Footer itemsToComplete={itemsToComplete}/>
           </div>

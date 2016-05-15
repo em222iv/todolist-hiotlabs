@@ -69,18 +69,6 @@ server.route({
   }
 });
 
-//behövlig eller inte??
-function getUniqueId() {
-   let id = Math.floor(Math.random() * (100000 - todos.length)) + todos.length;
-   let exists = todos.filter((todo) => {
-     if(todo.id === id)
-       return todo;
-   })
-   if(exists.length > 0)
-     getId();
-   return id;
-}
-
 server.route({
   method: 'PUT',
    path: '/todo/update/{id}',
@@ -88,6 +76,7 @@ server.route({
     handler: function(req, reply) {
       let id = req.params.id;
       let title = JSON.parse(req.payload).title;
+      if(title === "") return reply(Boom.badRequest('Empty Title'))
       todos = todos.map((todo) => {
           if (todo.id == id){
               let updatedTodo = Object.assign({}, todo, {
@@ -187,3 +176,14 @@ server.start((err) => {
     }
     console.log('Server running at:', server.info.uri);
 });
+
+function getUniqueId() {
+   let id = Math.floor(Math.random() * (100000 - todos.length)) + todos.length;
+   let exists = todos.filter((todo) => {
+     if(todo.id === id)
+       return todo;
+   })
+   if(exists.length > 0)
+     getId();
+   return id;
+}

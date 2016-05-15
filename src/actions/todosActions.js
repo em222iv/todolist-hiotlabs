@@ -17,9 +17,10 @@ export default {
     update(id,title){
       return dispatch => {
         todoAPI.updateTodo(id,title)
-        .then(todo => dispatch({
-             type: C.UPDATE_TODO, title
-         }))
+        .then(todo => {
+          dispatch({
+             type: C.UPDATE_TODO, title, id
+         })})
          .catch((error) => {
            console.log(error)
          });
